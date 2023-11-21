@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kafka.messaging.dto.Transaction;
+import com.kafka.messaging.producer.KafkaProducerService;
+
 @RestController
 public class RestApi {
     @Autowired
@@ -15,7 +18,7 @@ public class RestApi {
 
     @PostMapping("/event")
     public ResponseEntity<String> event(@RequestBody Transaction message){
-        producerService.send("message", RandomGenerator.getDefault().toString(), message);
+        producerService.send("messaging-topic", RandomGenerator.getDefault().toString(), message);
         return ResponseEntity.ok("send");
     }
 }

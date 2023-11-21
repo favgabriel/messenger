@@ -1,4 +1,4 @@
-package com.kafka.messaging;
+package com.kafka.messaging.utils;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
